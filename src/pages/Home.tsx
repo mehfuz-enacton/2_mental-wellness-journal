@@ -59,13 +59,13 @@ const Home = () => {
       setLoading(true);
 
       const res = await fetch(
-        `https://api.allorigins.win/raw?url=https://zenquotes.io/api/random&t=${Date.now()}`,
+        `https://dummyjson.com/quotes/random`,
       );
       const data = await res.json();
-
+      
       const apiQuote: Quote = {
-        q: data[0].q,
-        a: data[0].a,
+        q: data.quote,
+        a: data.author,
       };
 
       saveQuote(apiQuote);
