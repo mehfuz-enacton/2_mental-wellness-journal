@@ -12,12 +12,6 @@ const Journal = () => {
 
   const today = new Date().toISOString().split("T")[0];
 
-  // const [entries, setEntries] = useState<JournalEntry[]>([]);
-  // useEffect(() => {
-  //   const saved = localStorage.getItem(STORAGE_KEY);
-  //   if (saved) setEntries(JSON.parse(saved));
-  // }, []);
-
   const [entries, setEntries] = useState<JournalEntry[]>(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
     return saved ? JSON.parse(saved) : [];

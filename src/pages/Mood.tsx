@@ -21,18 +21,6 @@ const Mood = () => {
     return parsed[today] ?? null;
   });
 
-  // const [moods, setMoods] = useState<Record<string, MoodType>>({});
-  // const [selectedMood, setSelectedMood] = useState<MoodType | null>(null);
-
-  // Load saved moods
-  // useEffect(() => {
-  //   const saved = localStorage.getItem(STORAGE_KEY);
-  //   if (saved) {
-  //     setMoods(JSON.parse(saved));
-  //     setSelectedMood(JSON.parse(saved)[today] || null);
-  //   }
-  // }, [today]);
-
   const handleSelectMood = (mood: MoodType) => {
     const updated = {
       ...moods,

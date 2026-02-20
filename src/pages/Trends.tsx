@@ -18,24 +18,20 @@ const Trends = () => {
   const [month, setMonth] = useState(now.getMonth());
   const [year, setYear] = useState(now.getFullYear());
 
-  // ✅ Load journals safely
   const journals: JournalEntry[] = useMemo(() => {
     const stored = localStorage.getItem(JOURNAL_KEY);
     return stored ? JSON.parse(stored) : [];
   }, []);
 
-  // Load moods (date -> emoji)
   const moods: Record<string, MoodType> = useMemo(() => {
     const stored = localStorage.getItem(MOOD_KEY);
     return stored ? JSON.parse(stored) : {};
   }, []);
 
-  // ✅ Filtered journals
   const filtered = useMemo(() => {
     return filterByMonthYear(journals, month, year);
   }, [journals, month, year]);
 
-  // ✅ Weekly journal count
   const journalData = useMemo(() => {
     return groupByWeek(filtered);
   }, [filtered]);
